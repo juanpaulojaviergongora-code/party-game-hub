@@ -431,7 +431,7 @@ export default function HomePage({
       <section id="home-page" className="page-section simple-table-home">
         <header className="simple-home-header">
           <div className="simple-home-brand">
-            <small>PARTY GAME</small>
+            <small>BOOZE CLUES</small>
             <h1>HUB</h1>
           </div>
 
@@ -514,7 +514,7 @@ export default function HomePage({
             <h2>Pick a Card<br />and Play!</h2>
 
             <p className="simple-home-copy">
-              Don't drink and drive, Bawal Maoy mag laro kayo ng maayos boy.
+              Don't drink and drive, Bawal Maoy, mag laro kayo ng maayos boy.
             </p>
 
             <button className="simple-home-play" onClick={goToGames}>
@@ -525,7 +525,7 @@ export default function HomePage({
         </main>
 
         <footer className="simple-home-footer">
-          Party Game Hub · Pass the phone, play together, and enjoy the night.
+          Booze Clues Hub · Pass the phone, play together, and enjoy the night.
         </footer>
       </section>
     </>
