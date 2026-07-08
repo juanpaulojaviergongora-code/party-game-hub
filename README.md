@@ -1,16 +1,43 @@
-# React + Vite
+# Booze Clues Hub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Booze Clues Hub is a React/Vite party game website made for barkada game nights. It includes multiple pass-the-phone games designed for groups, parties, and casual hangouts.
 
-Currently, two official plugins are available:
+## Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+https://juanpaulojaviergongora-code.github.io/party-game-hub/
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Card-style game selection page
+- Multiple party games in one website
+- Kings Cup
+- Truth or Dare
+- Wheel of Names
+- Who's the Spy?
+- Most Likely To
+- Letter Rush
+- Would You Rather
+- Charades
+- Barkada Spectrum
+- Music and sound effect controls
+- Responsive design for desktop and mobile
+- Local browser saving using localStorage
+- No login or database required
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React
+- Vite
+- JavaScript
+- CSS
+- GitHub Pages
+
+## Purpose
+
+This project was created as a personal frontend portfolio project and a fun browser-based party game app for small groups.
+
+## How to Run Locally
+
+```bash
+npm install
+npm run dev
