@@ -2046,6 +2046,78 @@ function GamesPage({ onGoHome }) {
       )}
 
 
+
+      <style>{`
+        /*
+          GLOBAL BACKGROUND FIX
+          This keeps party-table-background.png visible on:
+          - Games card page
+          - Other Games page
+          - About page
+          - Every individual game screen
+          It also works on localhost and GitHub Pages.
+        */
+
+        html,
+        body,
+        #root {
+          min-height: 100%;
+          background-color: #241005 !important;
+        }
+
+        body {
+          background:
+            linear-gradient(
+              rgba(22, 7, 1, 0.30),
+              rgba(10, 3, 0, 0.50)
+            ),
+            url("${partyTableBackgroundUrl}") center center / cover fixed no-repeat !important;
+        }
+
+        .party-table-global-theme,
+        .party-table-global-theme.tabletop-app-mode,
+        .party-table-global-theme:not(.tabletop-app-mode) {
+          min-height: 100vh !important;
+          background:
+            linear-gradient(
+              rgba(22, 7, 1, 0.30),
+              rgba(10, 3, 0, 0.50)
+            ),
+            url("${partyTableBackgroundUrl}") center center / cover fixed no-repeat !important;
+          background-color: #241005 !important;
+          background-image:
+            linear-gradient(
+              rgba(22, 7, 1, 0.30),
+              rgba(10, 3, 0, 0.50)
+            ),
+            url("${partyTableBackgroundUrl}") !important;
+        }
+
+        .party-table-global-theme .tabletop-lobby {
+          background:
+            linear-gradient(
+              rgba(42, 14, 3, 0.18),
+              rgba(17, 4, 0, 0.36)
+            ),
+            url("${partyTableBackgroundUrl}") center center / cover no-repeat !important;
+          background-color: #241005 !important;
+        }
+
+        .party-table-global-theme .theme-background {
+          background: transparent !important;
+          pointer-events: none !important;
+        }
+
+        @media (max-width: 760px) {
+          body,
+          .party-table-global-theme,
+          .party-table-global-theme.tabletop-app-mode,
+          .party-table-global-theme:not(.tabletop-app-mode) {
+            background-attachment: scroll !important;
+          }
+        }
+      `}</style>
+
       <footer className="footer">
         <div>
           <p>Saved automatically on this browser.</p>
