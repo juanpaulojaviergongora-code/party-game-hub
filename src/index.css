@@ -52,3 +52,47 @@ body {
   background: transparent !important;
   background-image: none !important;
 }
+
+/* FORCE PARTY TABLE BACKGROUND ON ALL PAGES */
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+  background-color: #1b0b03 !important;
+}
+
+body {
+  background:
+    linear-gradient(rgba(10, 3, 0, 0.18), rgba(8, 2, 0, 0.28)),
+    url("/party-game-hub/party-table-background.png") center center / cover fixed no-repeat !important;
+}
+
+/* Make app containers transparent so the image can show */
+#root,
+.app,
+.app-shell,
+.home-page,
+.home-shell,
+.home-screen,
+.home-container,
+.party-table-global-theme,
+.tabletop-app-mode {
+  background: transparent !important;
+  background-image: none !important;
+}
+
+/* Keep the card/panel designs, but do not let page wrappers cover the background */
+main,
+section {
+  background-color: transparent;
+}
+
+/* Mobile fix */
+@media (max-width: 760px) {
+  body {
+    background:
+      linear-gradient(rgba(10, 3, 0, 0.18), rgba(8, 2, 0, 0.28)),
+      url("/party-game-hub/party-table-background.png") center center / cover scroll no-repeat !important;
+  }
+}
