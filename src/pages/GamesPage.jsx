@@ -94,6 +94,19 @@ function getSavedData(key, fallbackValue) {
   }
 }
 
+const GITHUB_PAGES_BASE_PATH = "/party-game-hub/";
+
+function getPublicAssetUrl(assetName) {
+  const cleanAssetName = String(assetName).replace(/^\/+/, "");
+  const viteBaseUrl = import.meta.env.BASE_URL || "/";
+  const basePath =
+    typeof window !== "undefined" && window.location.hostname.endsWith("github.io")
+      ? GITHUB_PAGES_BASE_PATH
+      : viteBaseUrl;
+
+  return `${basePath.replace(/\/?$/, "/")}${cleanAssetName}`;
+}
+
 
 function GamesPage({ onGoHome }) {
   const initialRouteParams = new URLSearchParams(window.location.search);
@@ -147,6 +160,7 @@ function GamesPage({ onGoHome }) {
   const [audioReady, setAudioReady] = useState(false);
 
   const isTabletopLobby = activeTab === "games" && (!selectedGame || selectedGame === "more");
+  const partyTableBackgroundUrl = getPublicAssetUrl("party-table-background.png");
 
   const audioContextRef = useRef(null);
   const musicTimerRef = useRef(null);
@@ -213,9 +227,10 @@ function GamesPage({ onGoHome }) {
   }, []);
 
   useEffect(() => {
+    window.clearInterval(musicTimerRef.current);
+    musicTimerRef.current = null;
+
     if (!musicEnabled || !audioReady) {
-      window.clearInterval(musicTimerRef.current);
-      musicTimerRef.current = null;
       return;
     }
 
@@ -384,7 +399,7 @@ function GamesPage({ onGoHome }) {
       window.clearInterval(musicTimerRef.current);
       musicTimerRef.current = null;
     };
-  }, [musicEnabled, musicVolume, musicTrack]);
+  }, [musicEnabled, musicVolume, musicTrack, audioReady]);
 
   useEffect(() => {
     return () => {
@@ -418,9 +433,12 @@ function GamesPage({ onGoHome }) {
     };
 
     if (context.state === "suspended") {
-      context.resume().then(markReady).catch(() => {
-        setAudioReady(false);
-      });
+      context
+        .resume()
+        .then(markReady)
+        .catch(() => {
+          setAudioReady(false);
+        });
     } else {
       markReady();
     }
@@ -470,11 +488,11 @@ function GamesPage({ onGoHome }) {
     const oscillator = context.createOscillator();
     const gain = context.createGain();
     const baseVolume = Math.min(
-      0.18,
+      0.32,
       Math.max(
-        0.003,
+        0.006,
         musicVolumeRef.current *
-          (isBass ? 0.10 : accent ? 0.15 : 0.115)
+          (isBass ? 0.16 : accent ? 0.26 : 0.20)
       )
     );
 
@@ -558,7 +576,11 @@ function GamesPage({ onGoHome }) {
     const nextValue = !musicEnabled;
 
     if (nextValue) {
+      musicStepRef.current = 0;
       unlockAudio();
+    } else {
+      window.clearInterval(musicTimerRef.current);
+      musicTimerRef.current = null;
     }
 
     setMusicEnabled(nextValue);
@@ -1413,7 +1435,7 @@ function GamesPage({ onGoHome }) {
               box-sizing: border-box;
               background:
                 linear-gradient(rgba(42, 14, 3, 0.20), rgba(17, 4, 0, 0.32)),
-                url("/party-table-background.png") center center / cover no-repeat;
+                url("${partyTableBackgroundUrl}") center center / cover no-repeat;
               box-shadow: inset 0 0 110px rgba(0, 0, 0, 0.5);
             }
 
