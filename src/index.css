@@ -21,3 +21,34 @@ input,
 textarea {
   font-family: inherit;
 }
+
+/* GLOBAL WEBSITE BACKGROUND FIX */
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+  background: #1b0b03 !important;
+}
+
+body {
+  background:
+    linear-gradient(rgba(20, 6, 1, 0.28), rgba(8, 2, 0, 0.45)),
+    url("/party-game-hub/party-table-background.png"),
+    url("/party-table-background.png") !important;
+  background-size: cover, cover, cover !important;
+  background-position: center center, center center, center center !important;
+  background-repeat: no-repeat, no-repeat, no-repeat !important;
+  background-attachment: fixed, fixed, fixed !important;
+}
+
+#root {
+  background: transparent !important;
+}
+
+.app-shell,
+.party-table-global-theme,
+.tabletop-app-mode {
+  background: transparent !important;
+  background-image: none !important;
+}
