@@ -514,8 +514,7 @@ export default function HomePage({
             <h2>Pick a Card<br />and Play!</h2>
 
             <p className="simple-home-copy">
-              One phone, your barkada, and a full table of party games. Start
-              playing now, then choose your game from the wooden card table.
+              Don't drink and drive, Bawal Maoy mag laro kayo ng maayos boy.
             </p>
 
             <button className="simple-home-play" onClick={goToGames}>
